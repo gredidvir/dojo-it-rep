@@ -20,6 +20,8 @@ end
 
 gem 'faker'
 
+gem 'devise'
+
 gem 'bootstrap-sass'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
