@@ -18,6 +18,8 @@ group :development do
   gem 'sqlite3'
 end
 
+gem 'faker'
+
 gem 'bootstrap-sass'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
