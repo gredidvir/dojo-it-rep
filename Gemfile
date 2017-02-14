@@ -20,6 +20,8 @@ end
 
 gem 'faker'
 
+gem 'figaro'
+
 gem 'devise'
 
 gem 'bootstrap-sass'
