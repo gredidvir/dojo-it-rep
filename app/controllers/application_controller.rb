@@ -1,4 +1,10 @@
 class ApplicationController < ActionController::Base
+  include Pundit
+
+  rescue_from Pundit::NotAuthorizedError do |error|
+    redirect_to root_url, alert: error.message
+  end
+  
   protect_from_forgery with: :exception
   
 
