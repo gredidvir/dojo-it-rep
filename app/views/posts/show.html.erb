@@ -16,10 +16,22 @@
     </small>
 
     <p><%= markdown @post.body %><%= image_tag(@post.post_image.profile.url) if @post.post_image? %> </p>
-  </div>
   <div class="col-md-4">
     <% if policy(@post).edit? %>
       <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
     <% end %>
   </div>
+  <br/ >
+    <% @comments.each do |comment| %>
+      <div class="media">
+        <div class="media-body">
+          <h4 class="media-heading">
+            <%= render :partial => 'comments/comment', locals: { topic: @topic, post: @post, comment: comment } %>
+          </h4>
+        </div>
+      </div>
+    <% end %>
+    <% if current_user %>
+  <%= render :partial => 'comments/form', locals: { topic: @topic, post: @post, comment: @post.comments.new } %>
+  <%end%>
 </div>
