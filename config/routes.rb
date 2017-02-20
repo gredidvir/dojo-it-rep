@@ -26,6 +26,9 @@ Rails.application.routes.draw do
 
   resources :posts, only: [] do
     resources :comments, only: [:create, :destroy]
+
+    post '/up_vote' => 'votes#up_vote', as: :up_vote
+    post '/down_vote' => 'votes#down_vote', as: :down_vote
   end
   
   # get 'welcome/contact'
@@ -35,6 +38,7 @@ Rails.application.routes.draw do
   # get 'welcome/about'
 
   get 'about' => 'welcome#about'
+
 
   # get 'contact' => 'welcome#contact'
 

@@ -1,0 +1,20 @@
+require 'rails_helper'
+
+describe Vote do
+  describe "validations" do
+    describe "value validation" do
+      before do
+          user = User.new
+          post = Post.new
+          @vote1 = Vote.new(value: 1, user:user, post:post)
+          @voteminus = Vote.new(value: -1, user:user, post:post)
+          @vote2 = Vote.new(value: 2, user:user, post:post)
+        end
+      it "only allows -1 or 1 as values" do
+        expect(@vote1.valid?).to eq true
+        expect(@voteminus.valid?).to eq true
+        expect(@vote2.valid?).to eq false
+      end
+    end
+  end
+end
