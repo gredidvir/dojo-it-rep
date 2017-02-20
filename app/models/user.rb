@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :votes, dependent: :destroy
   has_many :posts, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   has_many :comments
   mount_uploader :avatar, AvatarUploader
   devise :database_authenticatable, :registerable,
@@ -15,4 +16,9 @@ class User < ApplicationRecord
   def moderator?
     role == 'moderator'
   end
+  
+  def favorited(post)
+    favorites.where(post_id: post.id).first
+  end
+  
 end
