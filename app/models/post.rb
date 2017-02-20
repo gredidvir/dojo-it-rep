@@ -1,16 +1,14 @@
 class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
-  belongs_to :user, optional: true
-  belongs_to :topic, optional: true
+  belongs_to :user
+  belongs_to :topic
   mount_uploader :post_image, PostImageUploader
   
   default_scope { order('rank DESC') }
 
   validates :title, length: { minimum: 5 },   presence: true
   validates :body,  length: { minimum: 20 },  presence: true
-
-  after_create :create_vote
 
   def up_votes
     self.votes.where(value: 1).count
@@ -32,6 +30,6 @@ class Post < ApplicationRecord
   end
 
   def create_vote
-    self.votes.create(value: 1, post: self, user: self.user)
+    user.votes.create(value: 1, post: self)
   end
 end
