@@ -18,5 +18,16 @@ module ApplicationHelper
     (redcarpet.render text).html_safe
   end
 
+  def vote_link_classes(post, vote_option)
+    voted = 'glyphicon'
+    if vote_option == 'up'
+      voted << ' glyphicon-chevron-up' 
+      voted << ' voted' if current_user.voted(post) && current_user.voted(post).up_vote?
+    elsif vote_option == 'down'
+      voted << ' glyphicon-chevron-down'
+      voted << ' voted' if current_user.voted(post) && current_user.voted(post).down_vote?
+    end
+    voted
+  end
 end
 
