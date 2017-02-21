@@ -37,7 +37,7 @@
         <div class="media-body">
           <h4 class="media-heading">
           <div class='js-comments'>
-            <%= render :partial => 'comments/comment', locals: { topic: @topic, post: @post, comment: comment } %>
+            <%= render partial: 'comments/comment', collection: @comments %>
           </div>
           </h4>
         </div>
