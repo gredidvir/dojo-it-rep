@@ -1,6 +1,6 @@
 <%= form_for [post, comment], remote: true do |f| %>
   <div class="form-group">
     <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter new comment" %>
-    <%= f.submit "Create Connent", class: 'btn btn-success form-control' %>
+    <%= f.submit "Create Comment", class: 'btn btn-success form-control' %>
   </div>
 <% end %>
