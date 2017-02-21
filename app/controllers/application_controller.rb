@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include Pundit
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   rescue_from Pundit::NotAuthorizedError do |error|
     redirect_to root_url, alert: error.message
@@ -12,9 +13,6 @@ class ApplicationController < ActionController::Base
   end
 
   
-
-  before_action :configure_permitted_parameters, if: :devise_controller?
-
   protected
 
   def configure_permitted_parameters
