@@ -13,7 +13,7 @@ class Comment < ApplicationRecord
     post.favorites.each do |favorite|
     if should_receive_update_for?(favorite)
         FavoriteMailer.new_comment(favorite.user, self.post, self).deliver
-      end
+    end
     end
   end
 

@@ -69,6 +69,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.4)
+    database_cleaner (1.5.3)
     debug_inspector (0.0.2)
     devise (4.2.0)
       bcrypt (~> 3.0)
@@ -80,6 +81,11 @@ GEM
     erubis (2.7.0)
     excon (0.55.0)
     execjs (2.7.0)
+    factory_girl (4.8.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.8.0)
+      factory_girl (~> 4.8.0)
+      railties (>= 3.0.0)
     faker (1.7.3)
       i18n (~> 0.5)
     ffi (1.9.17)
@@ -364,7 +370,9 @@ DEPENDENCIES
   capybara
   carrierwave
   coffee-rails (~> 4.2)
+  database_cleaner
   devise
+  factory_girl_rails (~> 4.0)
   faker
   figaro
   fog
