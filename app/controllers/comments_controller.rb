@@ -10,11 +10,11 @@ class CommentsController < ApplicationController
     @new_comment = Comment.new
 
     authorize @comment
-
-    if @comment.save
+    byebug
+    if @comment.valid? && @comment.save 
       flash[:notice] = "Comment was created."
     else
-      flash[:error] = "There was an error saving the comment. Please try again."
+      flash[:error] = "Comment not saved: #{@comment.errors.messages[:body].join}"
     end
 
     respond_with(@comment) do |format|

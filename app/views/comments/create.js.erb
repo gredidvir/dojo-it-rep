@@ -3,5 +3,6 @@
   $('.js-comments').append("<%= escape_javascript(render(@comment)) %>");
   $('.new-comment').html("<%= escape_javascript(render partial: 'comments/form', locals: { post: @post, comment: @new_comment }) %>");
 <% else %>
+  $('#comment-alert').text = "asdsgfhffsadgfhfdsad"
   $('.new-comment').html("<%= escape_javascript(render partial: 'comments/form', locals: { post: @post, comment: @comment }) %>");
 <% end %>
